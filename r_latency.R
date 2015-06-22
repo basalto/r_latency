@@ -5,7 +5,7 @@ library(plyr)
 library(scales)
 library(gridExtra)
 
-setwd("D:\\Development\\R\\scripts\\latency")
+setwd("D:\\Development\\R\\scripts\\r_latency")
 
 
 # Import latency data from database
@@ -135,48 +135,48 @@ ggsave(charts,file=paste0("RTT_check_",myHost,".jpeg"), width=20, height=10, dpi
 
 # END 
 
-ggplot(latency,aes(x=Hour, y=RTT)) + geom_boxplot() + 
-  xlab('hr of day') + ylab('freq')
+# ggplot(latency,aes(x=Hour, y=RTT)) + geom_boxplot() + 
+#   xlab('hr of day') + ylab('freq')
+# 
+# 
+# latency_edge <- subset(latency.1min, Coverage=="EDGE")
+# latency_center <- subset(latency.1min, Coverage=="CENTER")
+# latency_fo <- subset(latency.1min, Coverage=="FO")
+# latency_351938722727 <- subset(latency.1min, Host=="351938722727")
+# latency_351930474974 <- subset(latency.1min, Host=="351930474974")
+# 
+# 
+# 
+# ggplot(latency.1min, aes(x=RTT)) + geom_histogram(aes(fill = ..count..)) + scale_fill_gradient("Count", low = "green", high = "red") + facet_wrap(Load ~ Host, ncol=2)
+# ggplot(latency, aes(x=Timestamp, y=RTT, colour=Host)) + geom_line() + xlab("") + ylab("RTT (ms)") + facet_wrap(~ Host, ncol=2)
+# ggplot(latency.1min, aes(x=Timestamp, y=RTT, colour=Host)) + geom_point() + facet_wrap(Load ~ Host, ncol=3)
+# ggplot(latency.1min, aes(x=Timestamp, y=RTT, colour=Host)) + geom_point() + facet_grid(~ Coverage, scales = "free")
+# 
+# ggplot(latency, aes(x=Timestamp, y=RTT)) + geom_jitter(aes(colour = Host), size=0.3)
+# ggplot(latency_5min, aes(x=Timestamp, y=RTT)) + geom_jitter(aes(colour = Host), size=0.3)
+# 
+# 
+# 
+# ggplot(latency, aes(x=Timestamp, y=RTT)) + geom_jitter(aes(colour = Host), size=0.3)
+# ggplot(latency, aes(x=Timestamp, y=RTT)) + geom_jitter(aes(colour = Host), size=0.3) + facet_wrap(Load ~ Host, ncol=3)
+# ggplot(latency, aes(x=Timestamp, y=RTT)) + geom_jitter(aes(colour = Host), size=0.3) + facet_wrap(Load ~ Coverage, ncol=2) 
+# ggplot(latency, aes(x=Timestamp, y=RTT)) + geom_jitter(aes(colour = Host), size=0.3) + facet_grid(Load ~ Host) 
+# 
 
 
-latency_edge <- subset(latency.1min, Coverage=="EDGE")
-latency_center <- subset(latency.1min, Coverage=="CENTER")
-latency_fo <- subset(latency.1min, Coverage=="FO")
-latency_351938722727 <- subset(latency.1min, Host=="351938722727")
-latency_351930474974 <- subset(latency.1min, Host=="351930474974")
-
-
-
-ggplot(latency.1min, aes(x=RTT)) + geom_histogram(aes(fill = ..count..)) + scale_fill_gradient("Count", low = "green", high = "red") + facet_wrap(Load ~ Host, ncol=2)
-ggplot(latency, aes(x=Timestamp, y=RTT, colour=Host)) + geom_line() + xlab("") + ylab("RTT (ms)") + facet_wrap(~ Host, ncol=2)
-ggplot(latency.1min, aes(x=Timestamp, y=RTT, colour=Host)) + geom_point() + facet_wrap(Load ~ Host, ncol=3)
-ggplot(latency.1min, aes(x=Timestamp, y=RTT, colour=Host)) + geom_point() + facet_grid(~ Coverage, scales = "free")
-
-ggplot(latency, aes(x=Timestamp, y=RTT)) + geom_jitter(aes(colour = Host), size=0.3)
-ggplot(latency_5min, aes(x=Timestamp, y=RTT)) + geom_jitter(aes(colour = Host), size=0.3)
-
-
-
-ggplot(latency, aes(x=Timestamp, y=RTT)) + geom_jitter(aes(colour = Host), size=0.3)
-ggplot(latency, aes(x=Timestamp, y=RTT)) + geom_jitter(aes(colour = Host), size=0.3) + facet_wrap(Load ~ Host, ncol=3)
-ggplot(latency, aes(x=Timestamp, y=RTT)) + geom_jitter(aes(colour = Host), size=0.3) + facet_wrap(Load ~ Coverage, ncol=2) 
-ggplot(latency, aes(x=Timestamp, y=RTT)) + geom_jitter(aes(colour = Host), size=0.3) + facet_grid(Load ~ Host) 
-
-
-
-ggplot(latency_351938722727, aes(x=Timestamp, y=RTT)) + geom_point(aes(colour = "red"), size=2) + theme(legend.position='none')
-ggplot(latency_5min_351938722727, aes(x=Timestamp, y=RTT)) + geom_point(aes(colour = "red"), size=2) + theme(legend.position='none')
-ggplot(latency_15min_351938722727, aes(x=Timestamp, y=RTT)) + geom_point(aes(colour = "red"), size=2) + theme(legend.position='none')
-
-#ggplot(latency_351938722727, aes(x=Timestamp, y=RTT)) + geom_bar(stat = "identity") + xlab("") + ylab("RTT (ms)") + theme(legend.position='none')
-#ggplot(latency_5min_351938722727, aes(x=Timestamp, y=RTT)) + geom_line() + xlab("") + ylab("RTT (ms)") + theme(legend.position='none')
-#ggplot(latency_15min_351938722727, aes(x=Timestamp, y=RTT)) + geom_line() + xlab("") + ylab("RTT (ms)") + theme(legend.position='none')
-
-#ggplot(latency_351930474974, aes(x=Timestamp, y=RTT)) + geom_jitter(aes(colour = Host), size=0.5)
-
-factor(latency$Timestamp)
-head(table(factor(latency$Host)))
-head(table(factor(latency_5min$Host)))
-head(table(factor(latency_15min$Host)))
+# ggplot(latency_351938722727, aes(x=Timestamp, y=RTT)) + geom_point(aes(colour = "red"), size=2) + theme(legend.position='none')
+# ggplot(latency_5min_351938722727, aes(x=Timestamp, y=RTT)) + geom_point(aes(colour = "red"), size=2) + theme(legend.position='none')
+# ggplot(latency_15min_351938722727, aes(x=Timestamp, y=RTT)) + geom_point(aes(colour = "red"), size=2) + theme(legend.position='none')
+# 
+# #ggplot(latency_351938722727, aes(x=Timestamp, y=RTT)) + geom_bar(stat = "identity") + xlab("") + ylab("RTT (ms)") + theme(legend.position='none')
+# #ggplot(latency_5min_351938722727, aes(x=Timestamp, y=RTT)) + geom_line() + xlab("") + ylab("RTT (ms)") + theme(legend.position='none')
+# #ggplot(latency_15min_351938722727, aes(x=Timestamp, y=RTT)) + geom_line() + xlab("") + ylab("RTT (ms)") + theme(legend.position='none')
+# 
+# #ggplot(latency_351930474974, aes(x=Timestamp, y=RTT)) + geom_jitter(aes(colour = Host), size=0.5)
+# 
+# factor(latency$Timestamp)
+# head(table(factor(latency$Host)))
+# head(table(factor(latency_5min$Host)))
+# head(table(factor(latency_15min$Host)))
 
       
