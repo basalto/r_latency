@@ -142,7 +142,10 @@ ggsave(charts,file=paste0("RTT_check_",myHost,".jpeg"), width=20, height=10, dpi
 # 
 # 
 # latency_edge <- subset(latency.1min, Coverage=="EDGE")
+<<<<<<< HEAD
 
+=======
+>>>>>>> b9e45bdde4b49075a5e66e1895c4f77d489b7132
 # latency_center <- subset(latency.1min, Coverage=="CENTER")
 # latency_fo <- subset(latency.1min, Coverage=="FO")
 # latency_351938722727 <- subset(latency.1min, Host=="351938722727")
@@ -181,3 +184,8 @@ ggsave(charts,file=paste0("RTT_check_",myHost,".jpeg"), width=20, height=10, dpi
 # head(table(factor(latency$Host)))
 # head(table(factor(latency_5min$Host)))
 # head(table(factor(latency_15min$Host)))
+<<<<<<< HEAD
+=======
+
+      
+>>>>>>> b9e45bdde4b49075a5e66e1895c4f77d489b7132
