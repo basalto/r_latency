@@ -5,13 +5,17 @@ library(plyr)
 library(scales)
 library(gridExtra)
 
-setwd("D:\\Development\\R\\scripts\\r_latency")
+#setwd("D:\\Development\\R\\scripts\\r_latency")
+setwd("/home/rjdinis/development/R/r_latency")
 
 
 # Import latency data from database
 m <- dbDriver("MySQL")
-rmysql.settingsfile <- "D:\\Users\\rjdinis\\my.cnf"
-con <- dbConnect(m, default.file=rmysql.settingsfile, group="latency", dbname="raspProbe")
+#rmysql.settingsfile <- "D:\\Users\\rjdinis\\my.cnf"
+rmysql.settingsfile <- "~/.cnf"
+con <- dbConnect(m, default.file=rmysql.settingsfile, group="latency", dbName="raspProbe")
+
+dbSendQuery(con, "USE raspProbe")
 
 rs = dbSendQuery(con, "select * from view_latency_1min")
 latency.1min = fetch(rs, n=-1)
