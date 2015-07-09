@@ -12,17 +12,17 @@ setwd("D:\\Development\\R\\scripts\\r_latency")
 source("plotUserLatency.R")
 
 # Import latency data from App-Server database (Linux)
-#m <- dbDriver("MySQL")
-#rmysql.settingsfile <- "D:\\Users\\rjdinis\\my.cnf"
+m <- dbDriver("MySQL")
+rmysql.settingsfile <- "D:\\Users\\rjdinis\\my.cnf"
 #rmysql.settingsfile <- "~/.cnf"
-#con <- dbConnect(m, default.file=rmysql.settingsfile, group="latency", dbName="raspProbe")
-#dbSendQuery(con, "USE raspProbe")
+con <- dbConnect(m, default.file=rmysql.settingsfile, group="latency", dbName="raspProbe")
+dbSendQuery(con, "USE raspProbe")
 
 # Import latency data from App-Server database (windows)
-#m <- dbDriver("MySQL")
-#rmysql.settingsfile <- "D:\\Users\\rjdinis\\my.cnf"
-#con <- dbConnect(m, default.file=rmysql.settingsfile, group="latency", dbName="raspProbe")
-#dbSendQuery(con, "USE raspProbe")
+m <- dbDriver("MySQL")
+rmysql.settingsfile <- "D:\\Users\\rjdinis\\my.cnf"
+con <- dbConnect(m, default.file=rmysql.settingsfile, group="latency", dbName="raspProbe")
+dbSendQuery(con, "USE raspProbe")
 
 # Import latency data from aws database (windows)
 m <- dbDriver("MySQL")
