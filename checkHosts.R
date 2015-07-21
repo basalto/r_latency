@@ -11,6 +11,12 @@ setwd("D:\\Development\\R\\scripts\\r_latency")
 
 source("plotUserLatency.R")
 
+hosts = read.table("hosts.txt", header = TRUE)
+
+for (i in 1:length(hosts$ip)) {
+  host <- as.character(hosts$ip[i])
+  print(host)
+}
 
 # Import latency data from App-Server database (Linux)
 m <- dbDriver("MySQL")
